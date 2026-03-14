@@ -7,7 +7,7 @@ const BrandCard: React.FC<{ brand: any }> = ({ brand }) => {
 
   return (
     <Link 
-      to={`/shop?brand=${brand.name.toLowerCase()}`} 
+
       className="bg-white rounded-2xl border border-gray-100 p-6 flex flex-col items-center justify-center hover:shadow-lg hover:border-purple-100 transition-all group"
     >
       <div className="w-full aspect-[4/3] bg-gray-50 rounded-xl mb-4 flex items-center justify-center p-4 group-hover:bg-purple-50 transition-colors">
@@ -60,7 +60,6 @@ export default function Brands() {
   return (
     <div className="flex flex-col w-full">
       
-      {/* Header Banner */}
       <div className="bg-gradient-to-r from-purple-500 to-purple-400 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-2 text-sm text-white/80 mb-6">
@@ -81,7 +80,6 @@ export default function Brands() {
         </div>
       </div>
 
-      {/* Brands Grid */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {brands.map((brand) => (
@@ -90,7 +88,6 @@ export default function Brands() {
         </div>
       </div>
 
-      {/* Features Strip */}
       <div className="bg-[#f0fdf4] py-12 mt-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-4">
