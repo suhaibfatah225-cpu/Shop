@@ -20,7 +20,6 @@ export default function ProductDetails() {
     };
   }, [isImageFullScreen]);
 
-  // Hardcoded products for now, matching Shop.tsx
   const products = [
     {
       id: 1,
@@ -62,7 +61,6 @@ export default function ProductDetails() {
     }
   ];
 
-  // Find product or use a default one if not found (for demo purposes)
   const product = products.find(p => p.id === Number(id)) || products[0];
 
   const renderStars = (rating: number) => {
@@ -98,7 +96,6 @@ export default function ProductDetails() {
     <div className="bg-gray-50/50 min-h-screen pb-16">
       <div className="container mx-auto px-4 py-8">
         
-        {/* Breadcrumbs */}
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-8">
           <Link to="/" className="hover:text-green-600 transition-colors">Home</Link>
           <span>›</span>
@@ -107,13 +104,11 @@ export default function ProductDetails() {
           <span className="text-gray-900 font-medium">{product.name}</span>
         </div>
 
-        {/* Main Product Section */}
         <div className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
             
-            {/* Left Side - Images */}
             <div className="flex flex-col gap-6">
-              {/* Main Image */}
+
               <div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden border border-gray-100 flex items-center justify-center p-4 group">
                 <img 
                   src={product.image} 
@@ -128,8 +123,7 @@ export default function ProductDetails() {
                   <Maximize2 size={20} />
                 </button>
               </div>
-              
-              {/* Thumbnails */}
+        
               <div className="flex gap-4 justify-center">
                 {[1, 2, 3, 4].map((i) => (
                   <button 
@@ -147,10 +141,8 @@ export default function ProductDetails() {
               </div>
             </div>
 
-            {/* Right Side - Details */}
             <div className="flex flex-col">
               
-              {/* Tags */}
               <div className="flex items-center gap-2 mb-4">
                 <span className="px-4 py-1.5 bg-green-50 text-green-700 text-sm font-medium rounded-full">
                   {product.category}
@@ -160,18 +152,15 @@ export default function ProductDetails() {
                 </span>
               </div>
 
-              {/* Title */}
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 {product.name}
               </h1>
 
-              {/* Rating */}
               <div className="flex items-center gap-2 mb-6">
                 <div className="flex">{renderStars(product.rating)}</div>
                 <span className="text-gray-500">{product.rating} ({product.reviews} reviews)</span>
               </div>
 
-              {/* Price */}
               <div className="flex items-end gap-3 mb-6">
                 <span className="text-4xl font-bold text-gray-900">{product.price} EGP</span>
                 {product.oldPrice && (
@@ -179,7 +168,6 @@ export default function ProductDetails() {
                 )}
               </div>
 
-              {/* Stock Status */}
               <div className="flex items-center gap-2 mb-8">
                 <span className="px-3 py-1 bg-green-50 text-green-600 text-sm font-medium rounded-full flex items-center gap-1.5">
                   <div className="w-2 h-2 rounded-full bg-green-600"></div>
@@ -189,12 +177,10 @@ export default function ProductDetails() {
 
               <hr className="border-gray-100 mb-8" />
 
-              {/* Description */}
               <p className="text-gray-600 text-lg mb-8">
                 Material Polyester Blend Colour Name Multicolour Department Women
               </p>
 
-              {/* Quantity */}
               <div className="mb-8">
                 <label className="block text-sm font-medium text-gray-700 mb-3">Quantity</label>
                 <div className="flex items-center gap-6">
@@ -219,13 +205,11 @@ export default function ProductDetails() {
                 </div>
               </div>
 
-              {/* Total Price */}
               <div className="bg-gray-50 rounded-2xl p-6 flex items-center justify-between mb-8">
                 <span className="text-gray-600 text-lg font-medium">Total Price:</span>
                 <span className="text-3xl font-bold text-green-600">{(product.price * quantity).toFixed(2)} EGP</span>
               </div>
 
-              {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 mb-6">
                 <button className="flex-1 bg-green-600 hover:bg-green-700 text-white h-14 rounded-xl text-lg font-medium flex items-center justify-center gap-2 transition-colors shadow-sm">
                   <ShoppingCart size={20} />
@@ -236,7 +220,6 @@ export default function ProductDetails() {
                 </button>
               </div>
 
-              {/* Wishlist & Share */}
               <div className="flex items-center gap-4 mb-10">
                 <button 
                   onClick={toggleWishlist}
@@ -254,7 +237,6 @@ export default function ProductDetails() {
                 </button>
               </div>
 
-              {/* Features */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-auto pt-8 border-t border-gray-100">
                 <div className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
@@ -289,9 +271,8 @@ export default function ProductDetails() {
           </div>
         </div>
 
-        {/* Tabs Section */}
         <div className="bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-          {/* Tab Headers */}
+
           <div className="flex border-b border-gray-100 px-6">
             <button 
               onClick={() => setActiveTab('details')}
@@ -318,8 +299,6 @@ export default function ProductDetails() {
               Shipping & Returns
             </button>
           </div>
-
-          {/* Tab Content */}
           <div className="p-8 md:p-10">
             {activeTab === 'details' && (
               <div className="animate-in fade-in duration-300">
